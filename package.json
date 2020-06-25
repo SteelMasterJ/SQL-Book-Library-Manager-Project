@@ -1,0 +1,27 @@
+{
+  "name": "SQL-Book-Library-Manager-Project",
+  "version": "1.0.0",
+  "description": "a project where you can use SQL to track a libraries books",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SteelMasterJ/SQL-Book-Library-Manager-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SteelMasterJ/SQL-Book-Library-Manager-Project/issues"
+  },
+  "homepage": "https://github.com/SteelMasterJ/SQL-Book-Library-Manager-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.0",
+    "sequelize": "^6.1.0",
+    "sequelize-cli": "^5.5.1",
+    "sqlite3": "^4.2.0"
+  }
+}
