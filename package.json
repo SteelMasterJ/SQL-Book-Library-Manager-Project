@@ -4,6 +4,7 @@
   "description": "a project where you can use SQL to track a libraries books",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +19,12 @@
   },
   "homepage": "https://github.com/SteelMasterJ/SQL-Book-Library-Manager-Project#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.1.1",
     "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
     "pug": "^3.0.0",
     "sequelize": "^6.1.0",
     "sequelize-cli": "^5.5.1",

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    a#new-book(href="/books/new") Create New Book
+    main#main-content
+        //- if books.length > 0
+        //-     table
+        //-         thead
+        //-         tr
+        //-             th Title
+        //-             th Author
+        //-             th Genre
+        //-             th Year
+        //-         tbody
+        //-         each book in books
+        //-             tr.tr-book
+        //-             td: a(href="/books/" + book.id) #{book.title}
+        //-             td= book.author
+        //-             td= book.genre
+        //-             td= book.year
+        //- else
+        //-     h3 Sorry, no results
