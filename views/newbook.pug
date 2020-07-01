@@ -3,7 +3,6 @@ extends layout
 block content
   main#book-form
     h2= title
-    include validationErrors
     form(action="/books", method="post")
       include form
       input(type="submit", value="Add Book")

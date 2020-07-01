@@ -7,19 +7,29 @@ module.exports = (sequelize) => {
   Book.init({
     title: {
         type: Sequelize.STRING,
+        validate: {
+            notEmpty: {
+                msg: 'Please provide a value for "releaseDate"',
+            }
+        },
       },
     author: {
         type: Sequelize.STRING,
+        validate: {
+            notEmpty: {
+                msg: 'Please provide a value for "releaseDate"',
+            }
+        },
     },
     genre: Sequelize.STRING,
     year: {
         type: Sequelize.INTEGER,
-        // validate: {
-        //     notNull: {
-        //         msg: 'Please provide a value for "releaseDate"'
-        //     }
-        // }
-    }
+        validate: {
+            notEmpty: {
+                msg: 'Please provide a value for "releaseDate"',
+            }
+        },
+    },
   }, { sequelize });
 
   return Book;
