@@ -60,7 +60,7 @@ router.get(
     } else {
         const err = new Error();
         err.status = 404;
-        err.message = "Book not Found"
+        err.message = "Sorry, there is no book corresponding to this ID"
 		throw err;
     }
   })
@@ -78,8 +78,8 @@ router.post(
         res.redirect("/books");
       } else {
         const err = new Error();
-        err.status = 404;
-        err.message = "Book not Found"
+        err.status = 500;
+        err.message = "Sorry, there was a problem with your request"
 		throw err;
       }
     } catch (error) {
@@ -107,7 +107,10 @@ router.post(
       await book.destroy();
       res.redirect("/books");
     } else {
-      res.render("books/error");
+        const err = new Error();
+        err.status = 404;
+        err.message = "Sorry, there was a problem with your request"
+		throw err;
     }
   })
 );

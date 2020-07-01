@@ -24,7 +24,10 @@ app.use("/books", books);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+    const err = new Error();
+    err.status = 404;
+    err.message = "- Sorry, this page does not exist"
+    next(err);
 });
 
 // error handler
