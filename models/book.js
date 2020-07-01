@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
         type: Sequelize.STRING,
         validate: {
             notEmpty: {
-                msg: 'Please provide a value for "releaseDate"',
+                msg: 'Please provide a value for "Title", a book needs a name like a moth needs a flame.',
             }
         },
       },
@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
         type: Sequelize.STRING,
         validate: {
             notEmpty: {
-                msg: 'Please provide a value for "releaseDate"',
+                msg: 'Please provide a value for "Author", a ghost didnt write this book!',
             }
         },
     },
@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
         type: Sequelize.INTEGER,
         validate: {
             notEmpty: {
-                msg: 'Please provide a value for "releaseDate"',
+                msg: 'Please provide a value for "releaseDate", all books were released at some point, just guess if you dont know.',
             }
         },
     },
