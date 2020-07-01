@@ -12,19 +12,21 @@ function asyncHandler(cb) {
     }
   };
 }
+
 /* Get all books listing. */
 router.get('/', asyncHandler(async (req, res) => {
     const books = await Book.findAll({ order: [[ "createdAt", "DESC" ]]});
-    res.render("books", { books: books, title: "SQL Library Book Manager" });
+    res.render("index", { books: books, title: "SQL Library Book Manager" });
 }));
 
 /* Create a new book form. */
 router.get(
   "/new",
   asyncHandler(async (req, res) => {
-    res.render("newbook", { book: {}, title: "New Book" });
+    res.render("new-book", { book: {}, title: "New Book" });
   })
 );
+
 /* Post create new book. */
 router.post(
   "/",
@@ -32,11 +34,11 @@ router.post(
     let book;
     try {
       book = await Book.create(req.body);
-      res.redirect("/");
+      res.redirect("/books");
     } catch (error) {
       if (error.name === "SequelizeValidationError") {
         book = await Book.build(req.body);
-        res.render("newbook", {
+        res.render("new-book", {
           book,
           errors: error.errors,
           title: "New Book",
@@ -47,21 +49,26 @@ router.post(
     }
   })
 );
+
 /* Get edit book form. */
 router.get(
   "/:id",
   asyncHandler(async (req, res) => {
     const book = await Book.findByPk(req.params.id);
     if (book) {
-      res.render("show", { book, title: "Update Book" });
+      res.render("update-book", { book, title: "Update Book" });
     } else {
-      res.render("books/error");
+        const err = new Error();
+        err.status = 404;
+        err.message = "Book not Found"
+		throw err;
     }
   })
 );
+
 /* Post update book. */
 router.post(
-  "books/:id",
+  "/:id",
   asyncHandler(async (req, res) => {
     let book;
     try {
@@ -87,6 +94,7 @@ router.post(
     }
   })
 );
+
 /* Post delete book. */
 router.post(
   "/:id/delete",
